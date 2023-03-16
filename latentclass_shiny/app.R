@@ -41,7 +41,8 @@ ui <- navbarPage(theme = bs_theme(bootswatch = "flatly"),
           tags$em("Mplus"), "for their Latent Class Analyses. This app creates data visualizations for mixture models starting from the 
           enumeration step to adding auxiliary variables. Researchers can directly upload their output received from Mplus to the Shiny application. 
           After uploading the Mplus output, you are provided with graphs and plots that visualize results in APA format, along with R code that 
-          directly corresponds with the graphics. Specifcally, this app is designed to visualize models using the", tags$em("Three-Step/BCH"), "models.",
+          directly corresponds with the graphics. Specifcally, this app is designed to visualize models using the", tags$em("Three-Step/BCH"), "models. All models were done using the", tags$em("MplusAutomation"),
+          "package (Hallquist & Wiley, 2018) in R.",
           tags$br(),
           tags$br(),
           "Each tab provides a walkthough on how to generate the plots. Below is a summary of what each tab is for:",
@@ -79,6 +80,11 @@ ui <- navbarPage(theme = bs_theme(bootswatch = "flatly"),
             href = "http://www.statmodel.com/download/webnotes/webnote15.pdf",
             "Asparouhov, T., & Muthén, B. (2014)."),"Auxiliary Variables in Mixture Modeling: 3-Step Approaches Using Mplus.", 
           tags$i("Mplus Web Notes"),": No. 15. August 5, 2014. Revised December 23, 2020.",
+          tags$br(),
+          tags$a(
+            href = "https://www.rdocumentation.org/packages/MplusAutomation/versions/0.8",
+            "Hallquist, M. N. & Wiley, J. F. (2018)."),"MplusAutomation: An R Package for Facilitating Large-Scale Latent Variable Analyses in Mplus.", 
+          tags$i("Structural Equation Modeling"),". 25, 621-638.",
           tags$br(),
           tags$a(
             href = "http://www.statmodel.com/download/usersguide/MplusUserGuideVer_8.pdf",
@@ -635,7 +641,7 @@ server <- function(input, output) {
        theme_classic() +
        theme(legend.title = element_blank(),
               legend.position = "top",
-              text = element_text(size =',input$ipp_size,') +
+              text = element_text(size =',input$ipp_size,')) +
        labs(title = "Item Probability Plot", y = "Probabilities")',
       sep = ''
     )
